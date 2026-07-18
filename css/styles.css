@@ -12,10 +12,18 @@
   --tinta-suave: rgba(20, 20, 20, 0.66);
   --hairline: rgba(20, 20, 20, 0.16);
   --hairline-invert: rgba(254, 254, 254, 0.22);
-  --tinta-suave-invert: rgba(254, 254, 254, 0.6);
+  --tinta-suave-invert: rgba(254, 254, 254, 0.62);
 
   /* margen mínimo: 6% del ancho, en los cuatro lados */
   --margen: 6vw;
+
+  /* ritmo vertical */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2.5rem;
+  --s-5: 4rem;
+  --s-6: 6rem;
 
   --grotesk: "Space Grotesk", "Segoe UI", Arial, sans-serif;
   --mono: "Space Mono", "Consolas", monospace;
@@ -25,7 +33,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -40,7 +48,20 @@ body {
 
 img { max-width: 100%; height: auto; }
 
+a { transition: color 0.18s ease, opacity 0.18s ease; }
+
 ::selection { background: var(--negro); color: var(--blanco); }
+.section--dark ::selection { background: var(--blanco); color: var(--negro); }
+
+a:focus-visible {
+  outline: 2px solid var(--negro);
+  outline-offset: 3px;
+}
+
+.section--dark a:focus-visible { outline-color: var(--blanco); }
+
+/* destino del skip-link: recibe foco programático, sin anillo visual */
+main:focus { outline: none; }
 
 /* --------------------------------------------------------------------------
    Voz de apoyo: etiquetas en Space Mono
@@ -49,7 +70,7 @@ img { max-width: 100%; height: auto; }
 .label {
   font-family: var(--mono);
   font-size: 0.8125rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--tinta-suave);
 }
@@ -88,8 +109,8 @@ img { max-width: 100%; height: auto; }
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1.4rem var(--margen);
+  gap: var(--s-3);
+  padding: 1.5rem var(--margen);
   background: var(--blanco);
   border-bottom: 1px solid var(--hairline);
 }
@@ -97,7 +118,7 @@ img { max-width: 100%; height: auto; }
 .wordmark {
   font-family: var(--grotesk);
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   letter-spacing: 0.01em;
   color: var(--negro);
   text-decoration: none;
@@ -107,44 +128,39 @@ img { max-width: 100%; height: auto; }
 
 .site-header nav {
   display: flex;
-  gap: 2rem;
+  gap: 2.2rem;
   flex-wrap: wrap;
 }
 
 .site-header nav a {
   font-family: var(--mono);
   font-size: 0.8125rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--negro);
-}
-
-.site-header nav a:hover,
-.site-header nav a:focus-visible {
   color: var(--tinta-suave);
 }
 
-a:focus-visible {
-  outline: 2px solid var(--negro);
-  outline-offset: 3px;
+.site-header nav a:hover,
+.site-header nav a:focus-visible,
+.site-header nav a[aria-current] {
+  color: var(--negro);
 }
-
-.section--dark a:focus-visible { outline-color: var(--blanco); }
 
 /* --------------------------------------------------------------------------
    Secciones · una idea por página · el vacío se respeta
    -------------------------------------------------------------------------- */
 
 .section {
-  padding: clamp(6rem, 14vh, 10rem) var(--margen);
+  padding: clamp(7rem, 16vh, 11rem) var(--margen);
 }
 
 .section--hero {
-  min-height: calc(100vh - 4.5rem);
+  min-height: calc(100vh - 4.7rem);
+  min-height: calc(100svh - 4.7rem);
   display: flex;
   align-items: center;
-  padding-top: clamp(4rem, 10vh, 8rem);
+  padding-top: clamp(4rem, 10vh, 7rem);
 }
 
 /* Todo nace del margen izquierdo: el bloque no se centra */
@@ -155,34 +171,36 @@ a:focus-visible {
   position: relative;
 }
 
-.label + h1,
-.label + h2 {
-  margin-top: 2.5rem;
-}
+.label + h1 { margin-top: var(--s-4); }
+.label + h2 { margin-top: var(--s-4); }
 
 /* Jerarquía: tamaño y peso. Nunca color ni subrayados. */
 
 h1 {
-  font-size: clamp(2.4rem, 6.4vw, 4.5rem);
+  font-size: clamp(2.7rem, 7vw, 5.25rem);
   font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
-  max-width: 18ch;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+  text-wrap: balance;
 }
 
 h2 {
-  font-size: clamp(1.7rem, 3.8vw, 2.625rem);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
   font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  max-width: 26ch;
+  line-height: 1.16;
+  letter-spacing: -0.012em;
+  max-width: 24ch;
+  text-wrap: balance;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+  font-size: clamp(1.3rem, 2.3vw, 1.7rem);
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.24;
+  letter-spacing: -0.005em;
   max-width: 30ch;
+  text-wrap: balance;
 }
 
 .body-copy {
@@ -190,10 +208,21 @@ h3 {
   font-weight: 400;
   line-height: 1.55;
   max-width: 44ch;
-  margin-top: 2rem;
+  margin-top: var(--s-4);
+  text-wrap: pretty;
 }
 
 h3 + .body-copy { margin-top: 0.9rem; }
+
+/* La raya corta bajo el titular, como en el brand book */
+.rule {
+  width: 2.25rem;
+  height: 2px;
+  background: currentColor;
+  margin-top: var(--s-4);
+}
+
+.rule + .body-copy { margin-top: var(--s-3); }
 
 /* El color no decora. Señala. */
 .accent { color: var(--vermellon); }
@@ -209,9 +238,9 @@ h3 + .body-copy { margin-top: 0.9rem; }
 }
 
 .trazo--section {
-  width: clamp(3rem, 5vw, 4.5rem);
+  width: clamp(3.25rem, 5.5vw, 5rem);
   margin-left: auto;
-  margin-top: 4rem;
+  margin-top: var(--s-5);
 }
 
 /* --------------------------------------------------------------------------
@@ -220,20 +249,38 @@ h3 + .body-copy { margin-top: 0.9rem; }
 
 .services {
   list-style: none;
-  margin-top: 4rem;
+  margin-top: var(--s-5);
 }
 
 .service {
   display: grid;
-  grid-template-columns: 4.5rem 1fr;
-  gap: 1rem;
-  padding: 2.2rem 0;
+  grid-template-columns: 5.5rem 1fr;
+  gap: var(--s-2);
+  padding: 2.6rem 0;
   border-top: 1px solid var(--hairline);
+  align-items: baseline; /* el número alinea con la línea base del título */
 }
 
 .service:last-child { border-bottom: 1px solid var(--hairline); }
 
-.service-num { padding-top: 0.4rem; }
+/* --------------------------------------------------------------------------
+   Proceso
+   -------------------------------------------------------------------------- */
+
+.steps {
+  list-style: none;
+  margin-top: var(--s-5);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5) var(--s-5);
+}
+
+.step {
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--s-3);
+}
+
+.step h3 { margin-top: var(--s-2); }
 
 /* --------------------------------------------------------------------------
    Principios · negativo: blanco sobre oscuro
@@ -248,18 +295,18 @@ h3 + .body-copy { margin-top: 0.9rem; }
 
 .principles {
   list-style: none;
-  margin-top: 4.5rem;
+  margin-top: var(--s-5);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4rem 5rem;
+  gap: var(--s-6) 5rem;
 }
 
 .principles li {
   border-top: 1px solid var(--hairline-invert);
-  padding-top: 1.6rem;
+  padding-top: var(--s-3);
 }
 
-.principles h3 { margin-top: 1rem; }
+.principles h3 { margin-top: var(--s-2); }
 
 /* --------------------------------------------------------------------------
    Contacto
@@ -268,10 +315,11 @@ h3 + .body-copy { margin-top: 0.9rem; }
 /* Jerarquía por tamaño y peso: sin subrayados. Grotesk como voz principal. */
 .contact-link {
   display: inline-block;
-  margin-top: 3.5rem;
+  margin-top: var(--s-5);
   font-family: var(--grotesk);
-  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
   font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--negro);
   text-decoration: none;
 }
@@ -287,28 +335,36 @@ h3 + .body-copy { margin-top: 0.9rem; }
 
 .site-footer {
   border-top: 1px solid var(--hairline);
-  padding: 3.5rem var(--margen) 4rem;
+  padding: var(--s-5) var(--margen) var(--s-5);
 }
 
 .footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: var(--s-4);
   flex-wrap: wrap;
 }
 
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--s-2);
 }
+
+/* Tamaño mínimo digital del logotipo: 24 px de altura. Aquí: 32 px. */
+.footer-logo {
+  width: auto;
+  height: 32px;
+}
+
+.wordmark--footer { font-size: 1.1rem; }
 
 .footer-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 1rem;
+  gap: var(--s-2);
 }
 
 /* Enlace social: icono negro, mínimo y sobrio */
@@ -330,39 +386,55 @@ h3 + .body-copy { margin-top: 0.9rem; }
   opacity: 0.6;
 }
 
-/* Tamaño mínimo digital del logotipo: 24 px de altura. Aquí: 32 px. */
-.footer-logo {
-  width: auto;
-  height: 32px;
-}
-
-.wordmark--footer { font-size: 1.1rem; }
-
 .footer-meta {
   text-transform: none;
   letter-spacing: 0.05em;
 }
 
 /* --------------------------------------------------------------------------
+   Revelado sutil (activado por JS; sin JS todo es visible)
+   -------------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 
+@media (max-width: 960px) {
+  .steps { grid-template-columns: 1fr; gap: var(--s-4); }
+}
+
 @media (max-width: 860px) {
-  .principles { grid-template-columns: 1fr; gap: 3rem; }
+  .principles { grid-template-columns: 1fr; gap: var(--s-5); }
 }
 
 @media (max-width: 640px) {
+  html { scroll-padding-top: 1.5rem; }
   .site-header {
+    position: static; /* en móvil no roba un quinto de pantalla */
     flex-direction: column;
     align-items: flex-start;
     gap: 0.8rem;
     padding-top: 1.1rem;
     padding-bottom: 1.1rem;
   }
-  .site-header nav { gap: 1.2rem; }
-  .section { padding-top: 5rem; padding-bottom: 5rem; }
+  .site-header nav { gap: 1.1rem 1.4rem; }
+  .section { padding-top: 5.5rem; padding-bottom: 5.5rem; }
   .section--hero { min-height: auto; }
-  .service { grid-template-columns: 3rem 1fr; }
+  .service { grid-template-columns: 3.25rem 1fr; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-right { align-items: flex-start; }
+  .social-link { margin: -10px 0 -10px -10px; } /* el glifo alinea con el margen */
 }
 
 /* --------------------------------------------------------------------------
@@ -371,4 +443,10 @@ h3 + .body-copy { margin-top: 0.9rem; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  a { transition: none; }
 }

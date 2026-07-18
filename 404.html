@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — BrujerIA</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="64x64" href="/brujeria-web/assets/favicon-64.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Space Grotesk", "Segoe UI", Arial, sans-serif;
+      background: #FEFEFE;
+      color: #141414;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6vw;
+      -webkit-font-smoothing: antialiased;
+    }
+    .label {
+      font-family: "Space Mono", "Consolas", monospace;
+      font-size: 0.8125rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(20, 20, 20, 0.66);
+    }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-top: 2.5rem;
+      max-width: 18ch;
+    }
+    .rule { width: 2.25rem; height: 2px; background: currentColor; margin-top: 2.5rem; }
+    p {
+      font-size: clamp(1.05rem, 1.6vw, 1.375rem);
+      margin-top: 1.5rem;
+      max-width: 44ch;
+    }
+    a {
+      display: inline-block;
+      margin-top: 2.5rem;
+      font-weight: 500;
+      font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+      color: #141414;
+      text-decoration: none;
+    }
+    a:hover, a:focus-visible { color: #E8380D; }
+    a:focus-visible { outline: 2px solid #141414; outline-offset: 3px; }
+    .wordmark {
+      position: fixed;
+      top: 1.5rem;
+      left: 6vw;
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #141414;
+      text-decoration: none;
+    }
+    .wordmark b { font-weight: 700; }
+  </style>
+</head>
+<body>
+  <a class="wordmark" href="/brujeria-web/" aria-label="BrujerIA, inicio">Brujer<b>IA</b></a>
+  <main>
+    <p class="label">404. Error</p>
+    <h1>Esta página no existe.</h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p>Puede que el enlace esté mal escrito o que la página se haya movido.</p>
+    <a href="/brujeria-web/">Volver al inicio</a>
+  </main>
+</body>
+</html>

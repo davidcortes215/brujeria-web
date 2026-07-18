@@ -6,8 +6,10 @@ Sitio estático de una página construido siguiendo el **BrujerIA Brand Book v3*
 
 ```
 brujeria-web/
-├── index.html          Página principal (manifiesto, propósito, servicios, principios, contacto)
+├── index.html          Página principal (manifiesto, propósito, servicios, proceso, principios, contacto)
+├── 404.html            Página de error autocontenida (GitHub Pages la sirve automáticamente)
 ├── css/styles.css      Estilos (Space Grotesk + Space Mono vía Google Fonts)
+├── js/main.js          Mejora progresiva: revelado sutil y sección activa en la navegación
 └── assets/             Logotipo, trazo, favicon y og-image extraídos del brand book
 ```
 
