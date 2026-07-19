@@ -7,6 +7,7 @@ Sitio estático de una página construido siguiendo el **BrujerIA Brand Book v3*
 ```
 brujeria-web/
 ├── index.html          Página principal (manifiesto, propósito, servicios, proceso, principios, contacto)
+├── gracias.html        Confirmación tras enviar el formulario de contacto
 ├── 404.html            Página de error autocontenida (GitHub Pages la sirve automáticamente)
 ├── css/styles.css      Estilos (Space Grotesk + Space Mono vía Google Fonts)
 ├── js/main.js          Mejora progresiva: revelado sutil y sección activa en la navegación
@@ -20,6 +21,15 @@ brujeria-web/
 - **Composición**: margen mínimo del 6 % en los cuatro lados (`--margen: 6vw`), texto alineado a la izquierda, sin justificar, una idea por sección, el vacío se respeta.
 - **El trazo**: ángulo original de 32°, sin rotar ni deformar (se usa el asset extraído del brand book). Un solo trazo en toda la página: firma el cierre (sección de contacto), no decora. En `assets/` quedan las variantes negro/blanco a alta resolución como kit de marca.
 - **Logotipo**: variantes positivo/negativo del brand book, altura mínima digital de 24 px respetada (32 px en el pie).
+
+## Formulario de contacto
+
+El formulario envía los datos mediante [FormSubmit](https://formsubmit.co) (gratuito,
+sin cuenta): cada envío llega por correo a `davidcortes215@gmail.com` con el asunto
+"Nuevo contacto desde la web de BrujerIA". El visitante no necesita iniciar sesión.
+Incluye campo honeypot antispam y redirige a `gracias.html` tras el envío.
+Cuando exista `hola@brujeria.es`, basta con cambiar el correo en el `action` del
+formulario en `index.html` (y reactivar FormSubmit desde ese buzón).
 
 ## Publicación
 
