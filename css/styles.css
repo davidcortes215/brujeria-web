@@ -475,13 +475,20 @@ h3 + .body-copy { margin-top: 0.9rem; }
     position: static; /* en móvil no roba un quinto de pantalla */
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.8rem;
-    padding-top: 1.1rem;
-    padding-bottom: 1.1rem;
+    gap: 0.7rem;
+    padding-top: 1rem;
+    padding-bottom: 0.9rem;
   }
-  .site-header nav { gap: 1.1rem 1.4rem; }
+  .site-header nav { gap: 0.85rem 1.2rem; }
+  .site-header nav a { font-size: 0.75rem; }
   .section { padding-top: 5.5rem; padding-bottom: 5.5rem; }
-  .section--hero { min-height: auto; }
+  .section--hero { min-height: auto; padding-top: 2.5rem; }
+  /* primera pantalla: titular + raya + explicación completos */
+  .section--hero h1 br { display: none; }
+  .section--hero h1 { font-size: 2.35rem; }
+  .section--hero .label + h1 { margin-top: 1.5rem; }
+  .section--hero .rule { margin-top: 1.6rem; }
+  .section--hero .rule + .body-copy { margin-top: 1.2rem; }
   .service { grid-template-columns: 3.25rem 1fr; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .footer-right { align-items: flex-start; }
