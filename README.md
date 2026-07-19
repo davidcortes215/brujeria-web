@@ -25,11 +25,12 @@ brujeria-web/
 ## Formulario de contacto
 
 El formulario envía los datos mediante [FormSubmit](https://formsubmit.co) (gratuito,
-sin cuenta): cada envío llega por correo a `davidcortes215@gmail.com` con el asunto
-"Nuevo contacto desde la web de BrujerIA". El visitante no necesita iniciar sesión.
-Incluye campo honeypot antispam y redirige a `gracias.html` tras el envío.
-Cuando exista `hola@brujeria.es`, basta con cambiar el correo en el `action` del
-formulario en `index.html` (y reactivar FormSubmit desde ese buzón).
+sin cuenta): cada envío llega por correo al buzón del propietario con el asunto
+"Nuevo contacto desde la web de BrujerIA". El `action` usa el alias aleatorio de
+FormSubmit para no exponer la dirección real en el código. El visitante no necesita
+iniciar sesión. Incluye campo honeypot antispam y redirige a `gracias.html` tras el
+envío. Cuando exista `hola@brujeria.es`, basta con cambiar el `action` del formulario
+en `index.html` por el nuevo buzón (y reactivar FormSubmit desde ese buzón).
 
 ## Publicación
 
