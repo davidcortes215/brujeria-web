@@ -206,7 +206,33 @@
         <div class="rule" aria-hidden="true"></div>
         <p class="body-copy">Te respondemos con una propuesta concreta.
         Sin reuniones innecesarias.</p>
-        <a class="contact-link" href="mailto:hola@brujeria.es">hola@brujeria.es</a>
+
+        <form class="contact-form" action="https://formsubmit.co/davidcortes215@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nuevo contacto desde la web de BrujerIA">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://davidcortes215.github.io/brujeria-web/gracias.html">
+          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field">
+            <label class="label" for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="Correo" required autocomplete="email">
+            <p class="field-hint">Aquí recibirás nuestra respuesta.</p>
+          </div>
+
+          <div class="field">
+            <label class="label" for="empresa">Nombre de empresa</label>
+            <input type="text" id="empresa" name="Empresa" required autocomplete="organization" maxlength="120">
+          </div>
+
+          <div class="field">
+            <label class="label" for="proceso">¿Qué proceso te lleva más tiempo?</label>
+            <textarea id="proceso" name="Proceso" required rows="4" maxlength="1000"></textarea>
+          </div>
+
+          <button class="submit-btn" type="submit">Enviar</button>
+        </form>
+
         <img class="trazo trazo--section" src="assets/trazo-negro-small.png" alt="" width="216" height="153">
       </div>
     </section>

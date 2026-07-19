@@ -312,21 +312,72 @@ h3 + .body-copy { margin-top: 0.9rem; }
    Contacto
    -------------------------------------------------------------------------- */
 
-/* Jerarquía por tamaño y peso: sin subrayados. Grotesk como voz principal. */
-.contact-link {
-  display: inline-block;
+.contact-form {
   margin-top: var(--s-5);
-  font-family: var(--grotesk);
-  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--negro);
-  text-decoration: none;
+  max-width: 40rem;
+  display: grid;
+  gap: var(--s-4);
 }
 
-.contact-link:hover,
-.contact-link:focus-visible {
-  color: var(--vermellon);
+.field {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea {
+  font-family: var(--grotesk);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--negro);
+  background: var(--blanco);
+  border: 1px solid rgba(20, 20, 20, 0.35);
+  border-radius: 0;
+  padding: 0.9rem 1rem;
+  width: 100%;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--negro);
+  box-shadow: inset 0 0 0 1px var(--negro);
+}
+
+.field-hint {
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+/* honeypot antispam: invisible para personas */
+.hp-field { display: none; }
+
+.submit-btn {
+  justify-self: start;
+  font-family: var(--grotesk);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--blanco);
+  background: var(--negro);
+  border: none;
+  border-radius: 0;
+  padding: 1rem 2.6rem;
+  cursor: pointer;
+  transition: opacity 0.18s ease;
+}
+
+.submit-btn:hover { opacity: 0.85; }
+
+.submit-btn:focus-visible {
+  outline: 2px solid var(--negro);
+  outline-offset: 3px;
 }
 
 /* --------------------------------------------------------------------------
