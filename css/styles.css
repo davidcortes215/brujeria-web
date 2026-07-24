@@ -177,12 +177,12 @@ main:focus { outline: none; }
 /* Jerarquía: tamaño y peso. Nunca color ni subrayados. */
 
 h1 {
-  font-size: clamp(2.7rem, 7vw, 5.25rem);
+  font-size: clamp(2.1rem, 5.6vw, 4.5rem);
   font-weight: 500;
-  line-height: 1.06;
+  line-height: 1.08;
   letter-spacing: -0.02em;
-  max-width: 16ch;
-  text-wrap: balance;
+  max-width: none;
+  text-wrap: pretty;
 }
 
 h2 {
@@ -190,7 +190,7 @@ h2 {
   font-weight: 500;
   line-height: 1.16;
   letter-spacing: -0.012em;
-  max-width: 24ch;
+  max-width: 30ch;
   text-wrap: balance;
 }
 
@@ -244,27 +244,7 @@ h3 + .body-copy { margin-top: 0.9rem; }
 }
 
 /* --------------------------------------------------------------------------
-   Servicios
-   -------------------------------------------------------------------------- */
-
-.services {
-  list-style: none;
-  margin-top: var(--s-5);
-}
-
-.service {
-  display: grid;
-  grid-template-columns: 5.5rem 1fr;
-  gap: var(--s-2);
-  padding: 2.6rem 0;
-  border-top: 1px solid var(--hairline);
-  align-items: baseline; /* el número alinea con la línea base del título */
-}
-
-.service:last-child { border-bottom: 1px solid var(--hairline); }
-
-/* --------------------------------------------------------------------------
-   Proceso
+   Servicios y Proceso · tres columnas
    -------------------------------------------------------------------------- */
 
 .steps {
@@ -280,7 +260,7 @@ h3 + .body-copy { margin-top: 0.9rem; }
   padding-top: var(--s-3);
 }
 
-.step h3 { margin-top: var(--s-2); }
+.step h3 { margin-top: 0; }
 
 /* --------------------------------------------------------------------------
    Principios · negativo: blanco sobre oscuro
@@ -306,7 +286,7 @@ h3 + .body-copy { margin-top: 0.9rem; }
   padding-top: var(--s-3);
 }
 
-.principles h3 { margin-top: var(--s-2); }
+.principles h3 { margin-top: 0; }
 
 /* --------------------------------------------------------------------------
    Contacto
@@ -569,13 +549,12 @@ h3 + .body-copy { margin-top: 0.9rem; }
   .site-header nav a { font-size: 0.75rem; }
   .section { padding-top: 5.5rem; padding-bottom: 5.5rem; }
   .section--hero { min-height: auto; padding-top: 2.5rem; }
-  /* primera pantalla: titular + raya + explicación completos */
-  .section--hero h1 br { display: none; }
-  .section--hero h1 { font-size: 2.35rem; }
+  /* primera pantalla: manifiesto con el salto tras la coma (2 líneas) */
+  .section--hero h1 { font-size: 1.7rem; }
   .section--hero .label + h1 { margin-top: 1.5rem; }
   .section--hero .rule { margin-top: 1.6rem; }
   .section--hero .rule + .body-copy { margin-top: 1.2rem; }
-  .service { grid-template-columns: 3.25rem 1fr; }
+  .steps { grid-template-columns: 1fr; gap: var(--s-4); }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .footer-right { align-items: flex-start; }
   .social-link { margin: -10px 0 -10px -10px; } /* el glifo alinea con el margen */
