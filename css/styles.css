@@ -549,8 +549,9 @@ h3 + .body-copy { margin-top: 0.9rem; }
   .site-header nav a { font-size: 0.75rem; }
   .section { padding-top: 5.5rem; padding-bottom: 5.5rem; }
   .section--hero { min-height: auto; padding-top: 2.5rem; }
-  /* primera pantalla: manifiesto con el salto tras la coma (2 líneas) */
-  .section--hero h1 { font-size: 1.7rem; }
+  /* primera pantalla: manifiesto con el salto tras la coma (2 líneas).
+     min() con vw para que la línea larga quepa en cualquier móvil */
+  .section--hero h1 { font-size: min(1.7rem, 6.4vw); }
   .section--hero .label + h1 { margin-top: 1.5rem; }
   .section--hero .rule { margin-top: 1.6rem; }
   .section--hero .rule + .body-copy { margin-top: 1.2rem; }
