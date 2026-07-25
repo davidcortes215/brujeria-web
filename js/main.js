@@ -56,4 +56,47 @@
       sectionObserver.observe(section);
     });
   }
+
+  /* --- Formulario de contacto: envío AJAX fiable -----------------------
+     El mensaje de éxito SOLO se muestra si el servidor confirma que ha
+     aceptado la solicitud. Si falla, el visitante ve un error claro y una
+     vía alternativa — nunca un falso "enviado". Sin JS, el form hace un
+     POST normal (con redirect) y también funciona. */
+  var form = document.getElementById('contact-form');
+  if (form && window.fetch) {
+    var statusEl = document.getElementById('form-status');
+    var btn = form.querySelector('.submit-btn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      if (statusEl) { statusEl.textContent = ''; statusEl.className = 'form-status'; }
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data && data.success) {
+            // Éxito CONFIRMADO por el servidor → página de gracias
+            window.location.href = 'gracias.html';
+          } else {
+            throw new Error((data && data.message) || 'respuesta no válida');
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = originalText;
+          if (statusEl) {
+            statusEl.textContent = 'No se pudo enviar. Revisa tu conexión e inténtalo de nuevo, o escríbenos directamente a hola@brujeria.pro.';
+            statusEl.className = 'form-status form-status--error';
+          }
+        });
+    });
+  }
 })();

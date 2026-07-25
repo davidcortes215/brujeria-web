@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 
   <script type="application/ld+json">
   {
@@ -182,16 +182,16 @@
         <p class="body-copy">Te respondemos en 48 horas,
         con una propuesta concreta. Sin reuniones innecesarias.</p>
 
-        <form class="contact-form" action="https://formsubmit.co/3276e5d88b62ff8e478762c92c5d5f66" method="POST">
-          <input type="hidden" name="_subject" value="Nuevo contacto desde la web de BrujerIA">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://brujeria.pro/gracias.html">
-          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="a34fb875-c065-43a4-9d5e-de3a44b609cb">
+          <input type="hidden" name="subject" value="Nuevo contacto desde la web de BrujerIA">
+          <input type="hidden" name="from_name" value="Web BrujerIA">
+          <input type="hidden" name="redirect" value="https://brujeria.pro/gracias.html">
+          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="field">
-            <label class="label" for="correo">Correo electrónico</label>
-            <input type="email" id="correo" name="Correo" required autocomplete="email">
+            <label class="label" for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
             <p class="field-hint">Aquí recibirás nuestra respuesta.</p>
           </div>
 
@@ -212,6 +212,7 @@
           </div>
 
           <button class="submit-btn" type="submit">Enviar</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
 
         <img class="trazo trazo--section" src="assets/trazo-negro-small.png" alt="" width="216" height="153">
@@ -239,6 +240,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=2" defer></script>
 </body>
 </html>

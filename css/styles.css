@@ -339,6 +339,20 @@ h3 + .body-copy { margin-top: 0.9rem; }
 /* honeypot antispam: invisible para personas */
 .hp-field { display: none; }
 
+/* mensaje de estado del formulario (error de envío) */
+.form-status {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: -0.5rem;
+}
+
+.form-status:empty { display: none; }
+
+.form-status--error {
+  color: var(--vermellon);
+  font-weight: 500;
+}
+
 .consent {
   display: flex;
   align-items: baseline;
