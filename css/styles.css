@@ -443,14 +443,20 @@ h3 + .body-copy { margin-top: 0.9rem; }
   gap: var(--s-2);
 }
 
-/* Enlace social: icono negro, mínimo y sobrio */
+/* Enlaces sociales: iconos negros, mínimos y sobrios */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: -10px -10px -10px 0;
+}
+
 .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  margin: -10px -10px -10px 0;
   color: var(--negro);
   border-radius: 4px;
 }
@@ -572,7 +578,7 @@ h3 + .body-copy { margin-top: 0.9rem; }
   .steps { grid-template-columns: 1fr; gap: var(--s-4); }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .footer-right { align-items: flex-start; }
-  .social-link { margin: -10px 0 -10px -10px; } /* el glifo alinea con el margen */
+  .social-links { margin: -10px 0 -10px -10px; } /* el glifo alinea con el margen */
 }
 
 /* --------------------------------------------------------------------------
