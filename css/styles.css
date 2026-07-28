@@ -451,6 +451,18 @@ h3 + .body-copy { margin-top: 0.9rem; }
   margin: -10px -10px -10px 0;
 }
 
+.whatsapp-alt a {
+  color: var(--negro);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.whatsapp-alt a:hover,
+.whatsapp-alt a:focus-visible {
+  color: var(--vermellon);
+}
+
 .social-link {
   display: inline-flex;
   align-items: center;
