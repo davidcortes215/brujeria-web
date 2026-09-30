@@ -463,6 +463,22 @@ h3 + .body-copy { margin-top: 0.9rem; }
   color: var(--vermellon);
 }
 
+.descarga-hoja {
+  margin-top: 28px;
+}
+
+.descarga-hoja a {
+  color: var(--negro);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.descarga-hoja a:hover,
+.descarga-hoja a:focus-visible {
+  color: var(--vermellon);
+}
+
 .social-link {
   display: inline-flex;
   align-items: center;
