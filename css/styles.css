@@ -469,9 +469,11 @@ h3 + .body-copy { margin-top: 0.9rem; }
 
 .descarga-hoja a {
   color: var(--negro);
+  font-weight: 500;
   text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--vermellon);
 }
 
 .descarga-hoja a:hover,
