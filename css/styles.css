@@ -463,11 +463,18 @@ h3 + .body-copy { margin-top: 0.9rem; }
   color: var(--vermellon);
 }
 
-.descarga-hoja {
+.descarga-hoja,
+.nevko-cta {
   margin-top: 28px;
 }
 
-.descarga-hoja a {
+.nevko-cta-sec {
+  margin-top: 12px;
+}
+
+.descarga-hoja a,
+.nevko-cta a,
+.nevko-cta-sec a {
   color: var(--negro);
   font-weight: 500;
   text-decoration: underline;
@@ -477,7 +484,11 @@ h3 + .body-copy { margin-top: 0.9rem; }
 }
 
 .descarga-hoja a:hover,
-.descarga-hoja a:focus-visible {
+.descarga-hoja a:focus-visible,
+.nevko-cta a:hover,
+.nevko-cta a:focus-visible,
+.nevko-cta-sec a:hover,
+.nevko-cta-sec a:focus-visible {
   color: var(--vermellon);
 }
 
