@@ -1,0 +1,115 @@
+/* Demonstration page only: the ribbon above the app (tokens from css/app.css). */
+
+:root {
+  --demo-ribbon-h: 37px; /* including its bottom border */
+}
+
+.demo-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: var(--demo-ribbon-h);
+  padding: 0 var(--gutter);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-2);
+  font: 400 var(--fs-xs) / 1.35 var(--font);
+  white-space: nowrap;
+}
+
+.demo-ribbon-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.demo-ribbon-text .icon {
+  flex: none;
+  color: var(--primary);
+}
+
+.demo-ribbon-text strong {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.demo-ribbon-long,
+.demo-ribbon-short {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.demo-ribbon-short {
+  display: none;
+}
+
+.demo-ribbon-btn {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text-2);
+  font: 600 var(--fs-xs) / 1 var(--font);
+  cursor: pointer;
+  transition: background-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+
+.demo-ribbon-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.demo-ribbon-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+@media (max-width: 560px) {
+  .demo-ribbon {
+    justify-content: space-between;
+  }
+
+  .demo-ribbon-long {
+    display: none;
+  }
+
+  .demo-ribbon-short {
+    display: inline;
+  }
+}
+
+@media (max-width: 420px) {
+  .demo-ribbon-btn {
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+
+  .demo-ribbon-btn-label {
+    display: none;
+  }
+}
+
+/* Full-height layouts sit under the ribbon (same rules as css/app.css and admin.css, minus its height). */
+body.is-demo .boot,
+body.is-demo .app,
+body.is-demo .admin,
+body.is-demo .adm-signin {
+  min-height: calc(100vh - var(--demo-ribbon-h));
+  min-height: calc(100dvh - var(--demo-ribbon-h));
+}
+
+body.is-demo .login {
+  min-height: calc(100vh - var(--demo-ribbon-h) - var(--topbar-h) - 1px - var(--safe-top) - var(--space-4) - var(--space-6) - var(--banner-h));
+  min-height: calc(100dvh - var(--demo-ribbon-h) - var(--topbar-h) - 1px - var(--safe-top) - var(--space-4) - var(--space-6) - var(--banner-h));
+}

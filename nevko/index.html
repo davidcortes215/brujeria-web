@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Copia de dist-demo de Nevko. El index.html original es un fragmento pensado para
+         publicarse como artefacto (que añade la estructura del documento); aquí va completo,
+         con viewport para móviles. Sin <base href="/">: la demo usa rutas con # y sus
+         recursos son relativos a /nevko/. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Nevko — Demostración</title>
+    <meta name="description" content="Demostración de Nevko: dónde está cada útil del taller y quién lo tiene. Funciona en el navegador, sin instalar nada.">
+    <meta property="og:title" content="Nevko — Demostración">
+    <meta property="og:description" content="Dónde está cada útil del taller y quién lo tiene. Pruébalo en el navegador, sin instalar nada.">
+    <meta property="og:url" content="https://brujeria.pro/nevko/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121820" media="(prefers-color-scheme: dark)">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="no-referrer">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="demo/demo.css">
+  </head>
+  <body>
+    <div id="app" class="boot" aria-busy="true">
+      <span class="spinner spinner-lg" role="status" aria-label="Cargando Nevko"></span>
+    </div>
+    <div id="overlays"></div>
+    <div id="toasts" class="toast-region" aria-live="polite"></div>
+    <noscript>
+      <div class="noscript">
+        <h1>Nevko necesita JavaScript</h1>
+        <p>Activa JavaScript en el navegador para usar la demostración.</p>
+      </div>
+    </noscript>
+    <script>window.TRACKTOOL_DEMO = true;</script>
+    <script type="module" src="demo/boot.js"></script>
+  </body>
+</html>
