@@ -47,6 +47,28 @@
   display: none;
 }
 
+.demo-ribbon-link {
+  flex: none;
+  color: var(--text-2);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.demo-ribbon-link-cta {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.demo-ribbon-link:hover .demo-ribbon-link-cta {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.demo-ribbon-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
 .demo-ribbon-btn {
   display: inline-flex;
   flex: none;
@@ -73,7 +95,15 @@
   box-shadow: 0 0 0 3px var(--ring);
 }
 
-@media (max-width: 560px) {
+/* Narrower windows step down so that every text fits on one line, down to 360 px wide
+   (longest case: the «solo en este dispositivo» texts). First the link keeps only «Escríbenos». */
+@media (max-width: 760px) {
+  .demo-ribbon-link-long {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
   .demo-ribbon {
     justify-content: space-between;
   }
@@ -87,7 +117,7 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .demo-ribbon-btn {
     justify-content: center;
     width: 30px;
@@ -96,6 +126,12 @@
   }
 
   .demo-ribbon-btn-label {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .demo-ribbon-text .icon {
     display: none;
   }
 }

@@ -11,8 +11,20 @@ import { installDemo } from './mock-api.js';
 /** [long, short] text after «Demostración» (the short one on narrow screens). */
 const RIBBON_TEXTS = {
   shared: [' · datos compartidos entre tus dispositivos', ' · datos compartidos'],
-  local: [' · datos de ejemplo guardados solo en este dispositivo', ' · datos solo en este dispositivo'],
+  local: [' · datos de ejemplo guardados solo en este dispositivo', ' · solo en este dispositivo'],
 };
+
+// Contact link of the ribbon (demo only: the real application has no ribbon).
+const CONTACT_URL = 'https://brujeria.pro/#contacto';
+
+function contactLink() {
+  return h(
+    'a.demo-ribbon-link',
+    { href: CONTACT_URL, target: '_blank', rel: 'noopener', title: 'Escríbenos (brujeria.pro)' },
+    h('span.demo-ribbon-link-long', '¿Lo quieres en tu taller? '),
+    h('span.demo-ribbon-link-cta', 'Escríbenos'),
+  );
+}
 
 function ribbon() {
   const long = h('span.demo-ribbon-long');
@@ -29,6 +41,7 @@ function ribbon() {
     'div.demo-ribbon',
     { role: 'note', 'aria-label': 'Demostración' },
     h('span.demo-ribbon-text', icon('info', { size: 16 }), h('strong', 'Demostración'), long, short),
+    contactLink(),
     h(
       'button.demo-ribbon-btn',
       {

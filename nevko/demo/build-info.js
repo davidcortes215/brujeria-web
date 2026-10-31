@@ -3,4 +3,4 @@
 export const APP_VERSION = "1.0.0";
 // pdfjs-dist version of the server (node_modules), loaded from the CDN by demo/pdf.js.
 export const PDFJS_VERSION = "6.3.289";
-export const BUILT_AT = "2026-10-26T09:52:28.488Z";
+export const BUILT_AT = "2026-10-27T18:11:27.057Z";
